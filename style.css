@@ -64,7 +64,7 @@ li {
   padding: 5px;
 }
 
-.header{
+.header {
   height: 13px;
 }
 
@@ -72,20 +72,20 @@ li {
   display: flex;
   justify-content: space-between;
   left: 25px;
-  height:  225px;
+  height: 225px;
   margin: 8px;
   border-radius: 10px;
   background-color: aqua;
 }
-.player .recent img{
+.player .recent img {
   padding: 15px;
   width: 140px;
   border-radius: 25px;
 }
 .player ul {
-  padding:0 14px 38px;;
+  padding: 0 14px 38px;
 }
-.recent{
+.recent {
   display: flex;
   gap: 5px;
   align-items: center;
@@ -96,58 +96,57 @@ li {
   font-size: 20px;
 }
 
-.Albums{
+.Albums {
   padding: 6px;
 }
 
-.card{
+.card {
   position: relative;
   width: 150px;
   border-radius: 5px;
   padding: 10px;
 }
 
-.card img{
+.card img {
   width: 100%;
   object-fit: contain;
 }
 
-.cardContainer{
+.cardContainer {
   display: flex;
   margin: 30px;
   gap: 20px;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   overflow-y: scroll;
   max-height: 45vh;
 }
-.card .play{
+.card .play {
   position: absolute;
   top: 108px;
-    right: 14px;
-    width: 41px;
-    /* opacity: 0; */
-    /* transition: all 1s ease-out; */
+  right: 14px;
+  width: 41px;
+  /* opacity: 0; */
+  /* transition: all 1s ease-out; */
 }
-.buttons > *{
+.buttons > * {
   margin: 0 5px;
 }
 
-.signupbtn{
+.signupbtn {
   background-color: black;
-  color:  rgb(176, 170, 170);
+  color: rgb(176, 170, 170);
   font-weight: bold;
   cursor: pointer;
   border: none;
   outline: none;
   font-size: 15px;
-
 }
-.signupbtn:hover{
+.signupbtn:hover {
   font-size: 16px;
   color: white;
 }
 
-.loginbtn{
+.loginbtn {
   background-color: white;
   border-radius: 20px;
   padding: 6px;
@@ -155,59 +154,77 @@ li {
   cursor: pointer;
   width: 70px;
 }
-.loginbtn:hover{
+.loginbtn:hover {
   padding: 7px;
   width: 75px;
   font-weight: bold;
 }
-.playbar{
+.playbar {
   position: fixed;
   bottom: 0;
   background-color: rgba(66, 64, 64, 0.719);
   width: -webkit-fill-available;
-  
+
   /* border: 2px solid white; */
 }
-.playbr{
+.playbr {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 15px;
 }
 
-.container{
+.container {
   position: relative;
 }
 
-.songbuttons{
+.songbuttons {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
-.library ul li{
+.library ul li {
   display: flex;
   cursor: pointer;
   justify-content: space-between;
   flex-wrap: nowrap;
   gap: 38px;
   padding: 10px 0;
-
-  
 }
 
-.library img{
-      width: 42px;
-    height: 32px;
+.library img {
+  width: 42px;
+  height: 32px;
 }
-.info{
-      font-size: 12px;
-      width: 150px;
+.info {
+  font-size: 12px;
+  width: 150px;
 }
-.library{
-    overflow-y: auto;
-    margin: 5px 0;
+.library {
+  overflow-y: auto;
+  margin: 5px 0;
 }
-.seekbar{
-  height: 2px;
+.seekbar {
+  height: 3px;
   width: 100%;
-  border: 2px solid red;
+  background-color: rgb(231, 7, 7);
+  position: absolute;
+  cursor: pointer;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 13px;
+  background-color: white;
+  position: relative;
+  bottom: 4px;
+  left: 0%;
+  transition: left 0.5s;
+}
+
+.songbuttons img {
+  cursor: pointer;
 }

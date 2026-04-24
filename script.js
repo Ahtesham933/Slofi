@@ -1,5 +1,14 @@
 console.log("hey");
+ let currentSong = new Audio();
 
+
+ function formatTime(seconds) {
+    seconds = Math.round(seconds);
+    const minutes = Math.floor(seconds / 60); // Calculate minutes
+    const remainingSeconds = seconds % 60; // Calculate remaining seconds
+    // Format as MM:SS
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
 
 async function getsongs(){
 
@@ -22,15 +31,26 @@ async function getsongs(){
     }
     return songs;
 }
-
-
-
-getsongs()
+const playMusic = (track , pause=false) => {
+  
+    currentSong.src = "/Slofi/songs/" + track;
+    if(!pause){
+        currentSong.play();
+        play.src = "/Slofi/assest/pause.svg"
+    }
+    document.querySelector(".songinfo1").innerHTML = decodeURI(track)
+    document.querySelector(".songinfo").innerHTML = decodeURI(track)
+    document.querySelector(".songtime").innerHTML = "00.00 / 00.00"
+}
+ 
 
 async function main(){
+
+   
+
     // get the list of all the songs
     let songs = await getsongs()
-
+playMusic(songs[0],true)
     // show all the songs in the playlist
     let songul =  document.querySelector(".library").getElementsByTagName("ul")[0];
     for (const song of songs) {
@@ -44,15 +64,44 @@ async function main(){
         </li>`;        
     }
 
-    // // play the 1st song
-    // var audio = new Audio(songs[0]);
-    // audio.play();
+    // Attach an event listener to each song
+  Array.from (document.querySelector(".library").getElementsByTagName("li")).forEach(e => {
+   e.addEventListener("click",element=>{
+       console.log(e.querySelector(".info").firstElementChild.innerHTML)
+        playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+   })  
+  })
+
+//  Attach an event listnener to play,next and previous
+play.addEventListener("click",() => {
+  if(currentSong.paused){
+    currentSong.play()
+    play.src = "/Slofi/assest/pause.svg"
+  }
+  else{
+    currentSong.pause()
+    play.src = "/Slofi/assest/ply.svg"
+  }
+})
     
-    
-    audio.addEventListener("loadeddata",() => {
-      let duration = audio.duration;
-      console.log(audio.duration , audio.currentSrc,audio.currentTime)
-    });
+// listen for time update event
+        currentSong.addEventListener("timeupdate",() => {
+          console.log(currentSong.currentTime, currentSong.duration);
+            document.querySelector(".songtime").innerHTML = `${formatTime(currentSong.currentTime)} / ${formatTime(currentSong.duration)}`
+            document.querySelector(".circle").style.left =  (currentSong.currentTime / currentSong.duration)*100 + "%";
+        })
+
+        // add an event listener to seekbar
+        document.querySelector(".seekbar").addEventListener("click",e => {
+            let percent = (e.offsetX /e.target.getBoundingClientRect().width)*100;
+         document.querySelector(".circle").style.left = percent +"%";
+        currentSong.currentTime = ((currentSong.duration)*percent)/100
+        })
+
+    // audio.addEventListener("loadeddata",() => {
+    //   let duration = audio.duration;
+    //   console.log(audio.duration , audio.currentSrc,audio.currentTime)
+    // });
 
 }
 main()
