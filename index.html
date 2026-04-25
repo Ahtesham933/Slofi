@@ -15,14 +15,23 @@
             <div class="close">
                 <img class="invert" src="assest/close.svg" alt="">
             </div>
-            <h1>music</h1>
+            
+    <div>
+      <a href="#" class="slofi-logo lg">
+        <span class="word">
+          <span class="part">sl</span>
+          <span class="disk"></span>
+          <span class="part">fi</span>
+        </span>
+      </a>
+    </div>
             <div class="home bg-grey items-center rounded m-1">
                 <ul>
-                    <li><img class="invert" src="assest/home.svg" alt="home">home</li>
-                    <li><img class="invert" src="assest/search.svg" alt="search">search</li>
-                    <li><img class="invert" src="assest/library.svg" alt="library">Your library</li>
-                    <li><img class="invert" src="assest/plus.svg" alt="create">create playlist</li>
-                    <li><img class="invert" src="assest/liked.svg" alt="liked">Liked songs</li>
+                    <li><img class="invert" src="assest/home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="assest/search.svg" alt="search">Search</li>
+                    <li><img class="invert" src="assest/library.svg" alt="library">Your Library</li>
+                    <li><img class="invert" src="assest/plus.svg" alt="create">Create Playlist</li>
+                    <li><img class="invert" src="assest/liked.svg" alt="liked">Liked Songs</li>
                 </ul>
             </div>
             <div class="browse-all">
@@ -63,8 +72,8 @@
                     <div class="recent"><img src="https://i.scdn.co/image/ab67616d00001e02ad214fc33b05facb1e527b98"
                             alt="">
                         <ul>
-                            <div class="songinfo1">songinfo</div>
-                            <li>player name</li>
+                            <div class="songinfo1">Song Name</div>
+                            <div class="albName">Albums name</div>
                             <li><button>play</button></li>
                         </ul>
                     </div>
@@ -87,16 +96,14 @@
     </div>
     <div class="playbar">
         <div class="seekbar">
-            <div class="circle">
-
-            </div>
+                <input type="range" min="0" max="100" value="0" name="seekbar" id="">
         </div>
         <div class="playbr">
             <div class="songbuttons">
                 <img class="invert" id="previous" src="assest/back.svg" alt="previous">
                 <img class="invert" id="play" src="assest/ply.svg" alt="play">
                 <img class="invert" id="next" src="assest/next.svg" alt="next">
-                <div class="songtime">song timee</div>
+                <div class="songtime">Song timee</div>
             </div>
             <div class="songinfo">
                 song info
@@ -113,6 +120,7 @@
     </div>
     </div>
     <script src="/Slofi/Js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 </body>
 
 </html>

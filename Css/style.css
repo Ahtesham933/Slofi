@@ -131,7 +131,10 @@ li {
 
 .card img {
   width: 100%;
-  object-fit: contain;
+}
+.card .rounded{
+    height: 145px;
+    width: 150px;
 }
 
 .cardContainer {
@@ -219,7 +222,7 @@ li {
   cursor: pointer;
   justify-content: space-between;
   flex-wrap: nowrap;
-  gap: 38px;
+  gap: 26px;
   padding: 10px 0;
 }
 
@@ -235,23 +238,12 @@ li {
   overflow-y: auto;
   margin: 5px 0;
 }
-.seekbar {
-  height: 3px;
+.seekbar input{
+  height: 4px;
   width: 100%;
-  background-color: rgb(231, 7, 7);
   position: absolute;
   cursor: pointer;
-}
-
-.circle {
-  width: 10px;
-  height: 10px;
-  border-radius: 13px;
-  background-color: white;
-  position: relative;
-  bottom: 4px;
-  left: 0%;
-  transition: left 0.5s;
+  background: linear-gradient(to right, #00bcd4 var(--seek-percent, 0%), #555 0%);
 }
 
 .songbuttons img {

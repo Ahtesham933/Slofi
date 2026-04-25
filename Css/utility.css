@@ -45,4 +45,87 @@ background-color: #121212;
   }
   
   /* For Firefox */
-  scrollbar-color: #333 #222; /* Dark color for the thumb and track in Firefox */
+  /* scrollbar-color: #333 #222; Dark color for the thumb and track in Firefox */
+
+  /* for logo */
+   .slofi-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .slofi-logo .word {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    /* sl + fi text parts */
+    .slofi-logo .part {
+      color: #e8ddd0;
+    }
+
+    /* ── vinyl disk replacing the "o" ── */
+    .disk {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #1e1b16;
+      border: 2px solid #c47c2a;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      /* groove rings via box-shadow */
+      box-shadow:
+        inset 0 0 0 4px #161310,
+        inset 0 0 0 6px #c47c2a22,
+        inset 0 0 0 8px #161310,
+        inset 0 0 0 9px #c47c2a15;
+      animation: spin 5s linear infinite;
+    }
+
+    /* center hole */
+    .disk::after {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c47c2a;
+      position: absolute;
+    }
+
+    /* spin on hover on whole logo, always spinning in nav */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* pause when logo is hovered — nice lo-fi touch */
+    .slofi-logo:hover .disk {
+      animation-play-state: paused;
+      border-color: #e09440;
+      box-shadow:
+        inset 0 0 0 4px #161310,
+        inset 0 0 0 6px #e0944033,
+        inset 0 0 0 8px #161310,
+        inset 0 0 0 9px #e0944020,
+        0 0 12px #c47c2a44;
+    }
+/* large standalone version */
+    .slofi-logo.lg .word   { font-size: 38px; }
+    .slofi-logo.lg .disk   { width: 38px; height: 38px; border-width: 3px;
+      box-shadow:
+        inset 0 0 0 7px #161310,
+        inset 0 0 0 10px #c47c2a22,
+        inset 0 0 0 13px #161310,
+        inset 0 0 0 15px #c47c2a15;
+    }
+    .slofi-logo.lg .disk::after { width: 6px; height: 6px; }
