@@ -16,9 +16,53 @@ body {
 .left {
   width: 25vw;
   padding: 15px;
+  transition: width 0.3s ease;
+}
+
+/* add from other */
+/* Collapsed state */
+.left.collapsed {
+  width: 70px;        /* just enough for icons */
+  padding: 15px 8px;
+}
+
+/* Hide labels when collapsed */
+.left.collapsed .sidebar-label {
+  display: none;
+}
+.left.collapsed .browse-all {
+  display: none;
+}
+
+.left.collapsed .right.header.logo{
+  display: none;
+}
+
+/* Center icons when collapsed */
+.left.collapsed .home ul li {
+  justify-content: center;
+}
+.left.collapsed .home {
+  background-color: black;
+}
+
+.left.collapsed .logonav {
+  justify-content: center;
+}
+
+/* Always show hamburger */
+.hamburger {
+  display: block !important;
+  cursor: pointer;
+}
+.hamburger img {
+  width: 28px;
 }
 .right {
-  width: 75vw;
+  width: 100vw;;
+}
+.right .header .logo{
+  display: none;
 }
 
 .home ul li {
@@ -34,6 +78,12 @@ li {
 
 .home {
   padding: 10px;
+   background: linear-gradient(
+    to bottom right,
+    #0f172a,
+    #1e1b4b,
+    #020617
+  );
 }
 
 .browse-all {
@@ -43,24 +93,11 @@ li {
   padding: 10px;
   color: rgb(125, 126, 142);
 }
-.hamburger{
-  display: none;
-  cursor: pointer;
-}
-.hamburger img{
-  height: 35px;
-  width: 35px;
-}
 
-.close{
-  display: none;
-  cursor: pointer;
-  position: absolute;
-    right: 26px;
-    top: 26px;
-}
-.close img{
-    width: 34px;
+.logonav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer {
@@ -73,20 +110,20 @@ li {
 }
 .footer a {
   color: gray;
+  text-decoration: none;
 }
 
-.header .buttons {
+.header{
   display: flex;
-  justify-content: right;
-  gap: 12px;
+  justify-content:space-between;
+  align-items: center;
+  height: 50px;
 }
+
 
 .header > * {
-  padding: 5px;
-}
-
-.header {
-  height: 35px;
+ margin-right: 16px;
+    margin-top: 17px;
 }
 
 .player {
@@ -122,8 +159,11 @@ li {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  width: 150px;
+  width: 160px;
   border-radius: 5px;
   padding: 10px;
   transition: all .9s;
@@ -131,10 +171,15 @@ li {
 
 .card img {
   width: 100%;
+  object-fit: cover;
 }
-.card .rounded{
-    height: 145px;
-    width: 150px;
+
+.card .rounded {
+  height: 145px;
+  width: 150px;
+  object-fit: cover;     
+  border-radius: 5px;    
+  display: block;
 }
 
 .cardContainer {
@@ -148,7 +193,7 @@ li {
 .card .play {
   position: absolute;
   top: 108px;
-  right: 14px;
+  right: 12px;
   width: 41px;
   opacity: var(--a);
   transition: all 1s ease-out;
@@ -162,6 +207,14 @@ li {
 
 .buttons > * {
   margin: 0 5px;
+}
+
+ .header  {
+ position: relative;
+}
+.buttons{
+  position: absolute;
+  right: 0;
 }
 
 .signupbtn {
@@ -230,6 +283,12 @@ li {
   width: 42px;
   height: 32px;
 }
+.animatebar{
+  font-size: 20px;
+  display: grid;
+  gap: 15px;
+}
+
 .info {
   font-size: 12px;
   width: 150px;
@@ -241,9 +300,10 @@ li {
 .seekbar input{
   height: 4px;
   width: 100%;
+
   position: absolute;
   cursor: pointer;
-  background: linear-gradient(to right, #00bcd4 var(--seek-percent, 0%), #555 0%);
+ 
 }
 
 .songbuttons img {
@@ -261,24 +321,45 @@ li {
   cursor: pointer;
 }
 
+.gradient-bg {
+  background: linear-gradient(
+    to bottom right,
+    #0f172a,
+    #1e1b4b,
+    #020617
+  );
+}
 
 
 @media (max-width: 1200px) {
- .container .left{
+.left .sidebar-label {
+  display: none;
+}
+.left .browse-all {
+  display: none;
+}
+
+.left.header.logo{
+  display: block;
+}
+
+
+.left{
     position: absolute;
-    left: -120%;
+    justify-content: center;
     transition: all .3s;
     z-index: 1;
-    width: 360px;
+    width: 70px;  
     background-color: black;
   }
+.logonav{
+  justify-content: center;
+}
+  
   .right{
     width: 100vw;
+    margin-left: 90px;
     padding: 1px 15px;
-  }
-
-  .hamburger{
-    display: block;
   }
 
   .header .buttons {
@@ -291,7 +372,7 @@ li {
   font-size: 10px;
 }
 .card{
-  width: 290px;;
+  width: 180px;;
 }
 .cardContainer {
   justify-content: center;
@@ -309,9 +390,10 @@ li {
 }
 
 @media (max-width: 1200px) {
-.card{
-  width: 290px;;
-}
+/* .card{
+  
+} */
 
 
 }
+

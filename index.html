@@ -12,28 +12,42 @@
 <body>
     <div class="container flex bg-black">
         <div class="left">
-            <div class="close">
-                <img class="invert" src="assest/close.svg" alt="">
+            <div class="logonav ">
+                <a href="#" class="slofi-logo lg sidebar-label">
+                    <span class="word">
+                        <span class="part">sl</span>
+                        <span class="disk"></span>
+                        <span class="part">fi</span>
+                    </span>
+                </a>
+                <img class="invert hamburger" src="assest/hamburger.svg">
             </div>
-            
-    <div>
-      <a href="#" class="slofi-logo lg">
-        <span class="word">
-          <span class="part">sl</span>
-          <span class="disk"></span>
-          <span class="part">fi</span>
-        </span>
-      </a>
-    </div>
-            <div class="home bg-grey items-center rounded m-1">
+
+            <div class="home  items-center rounded m-1">
                 <ul>
-                    <li><img class="invert" src="assest/home.svg" alt="home">Home</li>
-                    <li><img class="invert" src="assest/search.svg" alt="search">Search</li>
-                    <li><img class="invert" src="assest/library.svg" alt="library">Your Library</li>
-                    <li><img class="invert" src="assest/plus.svg" alt="create">Create Playlist</li>
-                    <li><img class="invert" src="assest/liked.svg" alt="liked">Liked Songs</li>
+                    <li>
+                        <img title="Home" class="invert" src="assest/home.svg">
+                        <span class="sidebar-label">Home</span>
+                    </li>
+                    <li>
+                        <img title="Search" class="invert" src="assest/search.svg">
+                        <span class="sidebar-label">Search</span>
+                    </li>
+                    <li>
+                        <img title="Library" class="invert" src="assest/library.svg">
+                        <span class="sidebar-label">Your Library</span>
+                    </li>
+                    <li>
+                        <img title="Playlist" class="invert" src="assest/plus.svg">
+                        <span class="sidebar-label">Create Playlist</span>
+                    </li>
+                    <li>
+                        <img title="Likes Songs" class="invert" src="assest/liked.svg">
+                        <span class="sidebar-label">Liked Songs</span>
+                    </li>
                 </ul>
             </div>
+
             <div class="browse-all">
                 <ul>
                     <li>workout mix</li>
@@ -46,8 +60,7 @@
             <div class="footer">
                 <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
                 <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
-                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
-                </div>
+                <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a></div>
                 <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
                 <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
                 <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
@@ -55,27 +68,33 @@
         </div>
         <div class="right">
             <div class="header">
+                <div class="logo">
+                    <a href="#" class="slofi-logo">
+                        <span class="word">
+                            <span class="part">sl</span>
+                            <span class="disk"></span>
+                            <span class="part">fi</span>
+                        </span>
+                    </a>
+                </div>
                 <div class="buttons">
-                    <div class="hamburger">
-                        <img class="invert" src="assest/hamburger.svg" alt="">
-                    </div>
-                    <div>
-
-                        <button class="signupbtn">Sign up</button>
-                        <button class="loginbtn">Log in</button>
-                    </div>
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
                 </div>
             </div>
             <div>
                 <h2>Your Library</h2>
-                <div class="player bg-grey">
+                <div class="player gradient-bg bg-grey">
                     <div class="recent"><img src="https://i.scdn.co/image/ab67616d00001e02ad214fc33b05facb1e527b98"
                             alt="">
-                        <ul>
+                        <div class="animatebar">
                             <div class="songinfo1">Song Name</div>
                             <div class="albName">Albums name</div>
-                            <li><button>play</button></li>
-                        </ul>
+                            <div class="animation-wrapper">
+                            <canvas id="dotlottie-canvas" width="200" height="30"></canvas>
+                            </div>
+    
+                        </div>
                     </div>
                     <div class="library">
                         <ul>
@@ -88,15 +107,15 @@
             <div class="Albums">
                 <h1>Album</h1>
                 <div class="cardContainer">
-                   
+
                 </div>
             </div>
         </div>
 
     </div>
-    <div class="playbar">
+    <div class="playbar gradient-bg">
         <div class="seekbar">
-                <input type="range" min="0" max="100" value="0" name="seekbar" id="">
+            <input type="range" min="0" max="100" value="0" name="seekbar" id="">
         </div>
         <div class="playbr">
             <div class="songbuttons">
@@ -119,6 +138,13 @@
         </div>
     </div>
     </div>
+     <script>
+    // DotLottie is now available as a global variable via DotLottieWeb
+  
+ 
+    // All your other JS works perfectly here — no module issues!
+  </script>
+ <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/dist/dotlottie-web.umd.js"></script>
     <script src="/Slofi/Js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 </body>

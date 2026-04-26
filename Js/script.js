@@ -2,7 +2,6 @@ console.log("hey");
 let currentSong = new Audio();
 let songs = [];
 let currFolder;
-
 function formatTime(seconds) {
   if (isNaN(seconds) || seconds < 0) return "00:00";
   const minutes = Math.floor(seconds / 60);
@@ -56,7 +55,7 @@ async function getsongs(folder) {
   let songul = document.querySelector(".library").getElementsByTagName("ul")[0];
   songul.innerHTML = "";
 
-  // ✅ Fix 1: define fallbackCover here using folder
+  //  define fallbackCover here using folder
   let folderName = folder.split("/").slice(-1)[0];
   let fallbackCover = `/Slofi/songs/${folderName}/cover.jpg`;
   document.querySelector(".recent img").src = fallbackCover;
@@ -81,7 +80,7 @@ try {
     `;
     songul.appendChild(li);
 
-    // ✅ Fix 2: getSongMeta is now INSIDE the for loop, so song & li are correct
+    //  getSongMeta is now INSIDE the for loop, so song & li are correct
     const songUrl = `http://127.0.0.1:3000/${folder}/` + encodeURIComponent(song);
     getSongMeta(songUrl).then(({ artist}) => {
       li.querySelector(".artist-name").innerHTML = artist;
@@ -100,7 +99,6 @@ try {
 const playMusic = (track, pause = false) => {
   const songUrl = `http://127.0.0.1:3000/${currFolder}/` + encodeURIComponent(track);
   currentSong.src = songUrl;
-
   if (!pause) {
     currentSong.play();
     play.src = "/Slofi/assest/pause.svg";
@@ -118,6 +116,7 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".artist-name").innerHTML = artist;
     if (imageUrl) document.querySelector(".recent img").src = imageUrl;
   });
+  
 };
 
 async function displayAlbums() {
@@ -132,7 +131,7 @@ async function displayAlbums() {
 
   for (const element of Array.from(anchors)) {
     let href = element.href || "";
-    // ✅ Skip parent/non-folder links
+    // Skip parent/non-folder links
     if (href.includes("?") || element.innerHTML.trim() === "../") continue;
 
     let decoded = decodeURIComponent(href).replace(/\\/g, "/").replace(/\/$/, "");
@@ -191,22 +190,38 @@ async function main() {
   });
 
   document.querySelector(".seekbar").addEventListener("click", (e) => {
-  // ✅ Calculate percent from click position
+  //  Calculate percent from click position
   const percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
   document.querySelector(".seekbar input").value = percent;
   currentSong.currentTime = (currentSong.duration * percent) / 100;
 });
 
+document.querySelector(".hamburger")
+  .addEventListener("click", () => {
+    document.querySelector(".left")
+      .classList.toggle("collapsed");
+  });
+  let islogoshow = false
   document.querySelector(".hamburger").addEventListener("click", () => {
-    document.querySelector(".left").style.left = "0";
-  });
+    islogoshow = !islogoshow 
+    if(islogoshow){
+      console.log("show");
+      document.querySelector(".logo").style.display = "block";
+      document.querySelector(".home").style.background = "black";
+    }else{
+      console.log("not show");
+      document.querySelector(".logo").style.display = "none";
+      document.querySelector(".home").style.background = "linear-gradient(to bottom right,#0f172a,#1e1b4b,#020617";
+    }
+    
+});
 
-  document.querySelector(".close").addEventListener("click", () => {
-    document.querySelector(".left").style.left = "-120%";
-  });
+  // document.querySelector(".close").addEventListener("click", () => {
+  //   document.querySelector(".left").style.left = "-0%";
+  // });
 
   previous.addEventListener("click", () => {
-    // ✅ decode src to match songs array
+    //  decode src to match songs array
     let currentFile = decodeURIComponent(currentSong.src.split("/").slice(-1)[0]);
     let index = songs.indexOf(currentFile);
     if (index - 1 >= 0) playMusic(songs[index - 1]);
