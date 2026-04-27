@@ -351,11 +351,16 @@ li {
     z-index: 1;
     width: 70px;  
     background-color: black;
+    bottom: 200px;
   }
+  
 .logonav{
   justify-content: center;
 }
-  
+.home {
+    
+    background: black;
+}
   .right{
     width: 100vw;
     margin-left: 90px;
@@ -389,11 +394,33 @@ li {
 
 }
 
-@media (max-width: 1200px) {
-/* .card{
-  
-} */
+@media (max-width: 600px) {
+.player{
+   display: grid;
+   height: 350px;
+}
+    .left {
+      z-index: -1;
+    }
 
+        .right {
+        margin-left: 10px;
+        }
 
+        .playbar {
+   height: 190px;
+}
+.playbr {
+    display: grid;
+    gap: 22px;
+    margin: 15px;
+    margin-left: 85px; 
+}
+.songbuttons img{
+ width: 50px;
 }
 
+.songinfo{
+  font-size: 23px;
+}
+}

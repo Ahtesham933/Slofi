@@ -102,6 +102,7 @@ const playMusic = (track, pause = false) => {
   if (!pause) {
     currentSong.play();
     play.src = "/Slofi/assest/pause.svg";
+    startVisualizer(); 
   }
   let displayName = track.replace(".mp3", "");
   document.querySelector(".songinfo").innerHTML = displayName; 
@@ -176,6 +177,7 @@ async function main() {
     if (currentSong.paused) {
       currentSong.play();
       play.src = "/Slofi/assest/pause.svg";
+         startVisualizer(); 
     } else {
       currentSong.pause();
       play.src = "/Slofi/assest/ply.svg";
